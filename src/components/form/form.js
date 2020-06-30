@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './form.scss';
+import '../form/form.scss';
 
 class Form extends React.Component {
 
@@ -13,10 +13,11 @@ class Form extends React.Component {
     };
   }
 
+
   handleSubmit = e => {
     e.preventDefault();
 
-    if ( this.state.url && this.state.method ) {
+    if (this.state.url && this.state.method) {
 
       // Make an object that would be suitable for superagent
       let request = {
@@ -28,7 +29,7 @@ class Form extends React.Component {
       let url = '';
       let method = '';
 
-      this.setState({request, url, method});
+      this.setState({ request, url, method });
       e.target.reset();
 
     }
@@ -40,7 +41,7 @@ class Form extends React.Component {
 
   handleChangeURL = e => {
     const url = e.target.value;
-    this.setState({url});
+    this.setState({ url });
   };
 
   handleChangeMethod = e => {
