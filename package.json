@@ -21,7 +21,7 @@
   "bugs": {
     "url": "https://github.com/Hammad-401-advanced-javascript/restyReact/issues"
   },
-  "homepage": "https://Hammad-401-advanced-javascript.github.io/restyReact/",
+  "homepage": "",
   "dependencies": {
     "gh-pages": "^3.1.0",
     "node-sass": "^4.14.1",
