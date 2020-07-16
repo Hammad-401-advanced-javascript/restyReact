@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 
 import './app.scss';
@@ -18,7 +19,7 @@ class App extends React.Component {
     this.state = {
       count: 0,
       results: [],
-      headers: []
+      headers: [],
 
     };
   }
