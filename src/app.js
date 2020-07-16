@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import ReactJson from 'react-json-view';
 import { Route } from 'react-router-dom';
