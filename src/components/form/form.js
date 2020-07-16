@@ -9,35 +9,47 @@ class Form extends React.Component {
     this.state = {
       url: '',
       method: '',
+      count: '',
+      results: '',
       request: {},
     };
   }
 
 
-  handleSubmit = e => {
+  handleSubmit = async (e) => {
+    //at some point
     e.preventDefault();
 
-    if (this.state.url && this.state.method) {
-
-      // Make an object that would be suitable for superagent
-      let request = {
-        url: this.state.url,
-        method: this.state.method,
-      };
-
-      // Clear old settings
-      let url = '';
-      let method = '';
-
-      this.setState({ request, url, method });
-      e.target.reset();
-
+    let raw = await fetch(this.state.url); // star wars API
+    let results = await raw.json();
+    console.log(raw.headers);
+    let headers = raw.headers;
+    if (results.count) {
+      let Count = results.count;
+      this.props.handler(Count, results, headers);
     }
-
     else {
-      alert('missing information');
+      let Count = Object.keys(results).length;
+      this.props.handler(Count, results, headers);
     }
-  }
+
+    // try {
+    //   const raw = await fetch(this.state.url);
+    //   const results = await raw.json();
+    //   let headers = raw.headers;
+
+    //   if (results.count) {
+    //     let Count = results.count;
+    //     this.props.handler(results, Count, headers);
+    //   }
+    //   else {
+    //     let Count = Object.keys(results).length;
+    //     this.props.handler(results, Count, headers);
+    //   }
+
+
+    // } 
+  };
 
   handleChangeURL = e => {
     const url = e.target.value;
